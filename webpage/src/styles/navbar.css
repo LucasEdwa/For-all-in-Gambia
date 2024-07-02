@@ -1,0 +1,12 @@
+
+.nav-bg {
+    background-color: #007bff;
+    width: 100%;
+    right: 0;
+  }
+  .nav-li{
+    color: white;
+  }
+  .white-text {
+    color: white !important;
+  }

@@ -1,0 +1,42 @@
+.footer {
+  background: #0044cc;
+  color: white;
+  padding: 20px;
+  font-size: 14px;
+  bottom: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  margin-right: 20px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  margin-bottom: 10px;
+}
+
+.donate-button {
+  background: yellow;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 5px;
+}

@@ -1,0 +1,23 @@
+.project-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+.project-details h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.project-details ul {
+  border-radius: 5px;
+  width: 100%;
+  list-style: none;
+  padding: 15px;
+  margin: 0;
+  text-align: left;
+  background-color: #30b1b1;
+}

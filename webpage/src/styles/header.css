@@ -1,0 +1,11 @@
+.header-logo-box {
+  border-right: 1px solid white;
+  display: flex;
+  align-items: center;
+}
+.header-logo {
+  width: 4rem;
+  height: 50px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
