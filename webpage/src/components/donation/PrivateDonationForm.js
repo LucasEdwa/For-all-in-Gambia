@@ -16,8 +16,31 @@ const donationMessages = {
     "200",
     "ge en mamma 800g mjölkpulver och en nappflaska"
   ),
+  "400 KR": generateDonationMessage(
+    "400",
+    "ge en mamma 800g mjölkpulver och en nappflaska"
+  ),
   VALFRITT: generateDonationMessage("valfria"),
 };
+
+const DonationAmountOptions = ({
+  donationAmount,
+  handleDonationAmountClick,
+}) => (
+  <div className="flex gap-1 mt-1">
+    {["100 KR", "200 KR", "400 KR", "VALFRITT"].map((amount) => (
+      <input
+        key={amount}
+        type="button"
+        className={`p-2 border-2 text-center w-full cursor-pointer ${
+          donationAmount === amount ? "bg-blue-700 " : "bg-transparent"
+        }`}
+        value={amount}
+        onClick={() => handleDonationAmountClick(amount)}
+      />
+    ))}
+  </div>
+);
 
 export default function PrivateDonationForm({ formData, setFormData }) {
   const [signatureType, setSignatureType] = useState("bli-manadsgivare");
@@ -32,7 +55,6 @@ export default function PrivateDonationForm({ formData, setFormData }) {
       [event.target.name]: event.target.value,
     });
   };
-  console.log(formData);
 
   const handleCheckboxChange = (event) => {
     setFormData({
@@ -67,12 +89,6 @@ export default function PrivateDonationForm({ formData, setFormData }) {
         donationAmount: numericDonationAmount,
         signatureType,
       });
-      console.log({
-        ...formData,
-        donationAmount: numericDonationAmount,
-        signatureType,
-        donationType: "privat-person",
-      });
       navigate("/payment", {
         state: {
           ...formData,
@@ -95,23 +111,19 @@ export default function PrivateDonationForm({ formData, setFormData }) {
     }
   };
 
-  const handleCustomDonationAmountChange = (event) => {
-    setCustomDonationAmount(event.target.value);
-  };
-
   return (
     <div>
       <form
         onSubmit={handleFormSubmit}
-        className="w-full max-w-md mx-auto p-5 shadow-md font-sans"
+        className="w-full max-w-md mx-auto px-5 pb-5 shadow-md "
       >
-        <div className="space-y-5">
+        <div className="">
           <div className="flex w-full">
             <input
               type="button"
               className={`w-full p-2 border-2 text-center cursor-pointer ${
                 signatureType === "bli-manadsgivare"
-                  ? "bg-blue-700"
+                  ? "bg-blue-700 border-none"
                   : "bg-transparent"
               }`}
               value="BLI MÅNADSGIVARE"
@@ -128,35 +140,12 @@ export default function PrivateDonationForm({ formData, setFormData }) {
               onClick={() => handleButtonClick("ge-en-gava")}
             />
           </div>
-          {signatureType === "bli-manadsgivare" && (
-            <div className="flex gap-1 mt-4 ">
-              {["100 KR", "200 KR", "VALFRITT"].map((amount) => (
-                <input
-                  key={amount}
-                  type="button"
-                  className={`p-2 border-2 text-center w-full cursor-pointer ${
-                    donationAmount === amount ? "bg-blue-700" : "bg-transparent"
-                  }`}
-                  value={amount}
-                  onClick={() => handleDonationAmountClick(amount)}
-                />
-              ))}
-            </div>
-          )}
-          {signatureType === "ge-en-gava" && (
-            <div className="flex gap-1 mt-4">
-              {["100 KR", "200 KR", "VALFRITT"].map((amount) => (
-                <input
-                  key={amount}
-                  type="button"
-                  className={`p-2 border-2 text-center w-full cursor-pointer ${
-                    donationAmount === amount ? "bg-blue-700" : "bg-transparent"
-                  }`}
-                  value={amount}
-                  onClick={() => handleDonationAmountClick(amount)}
-                />
-              ))}
-            </div>
+          {(signatureType === "bli-manadsgivare" ||
+            signatureType === "ge-en-gava") && (
+            <DonationAmountOptions
+              donationAmount={donationAmount}
+              handleDonationAmountClick={handleDonationAmountClick}
+            />
           )}
           {donationMessages[donationAmount] && (
             <div>
@@ -167,7 +156,7 @@ export default function PrivateDonationForm({ formData, setFormData }) {
                     className="w-full p-2 bg-transparent border-b-2 border-white placeholder-white"
                     type="text"
                     placeholder="Ange valfritt belopp"
-                    onChange={handleCustomDonationAmountChange}
+                    onChange={(e) => setCustomDonationAmount(e.target.value)}
                   />
                 </div>
               )}
@@ -261,7 +250,7 @@ export default function PrivateDonationForm({ formData, setFormData }) {
           type="submit"
         >
           <FontAwesomeIcon icon={faHeart} />
-          <span>TILL BETALNING ({donationAmount})</span>
+          <span>To Payment ({donationAmount})</span>
         </button>
       </form>
     </div>

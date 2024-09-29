@@ -55,15 +55,15 @@ export default function Header() {
     setBarVisible(false);
   };
   return (
-    <div className="flex  flex-col justify-between border-e bg-white">
+    <div className="flex  flex-col justify-between border-e bg-white shadow-sm">
       <div className="">
-        <span
-          className="flex items-center gap-6   w-40 place-content-center rounded-lg text-xs text-gray-600"
+        <h1
+          className="flex items-center gap-6   w-fit place-content-center rounded-lg lg:text-xl text-gray-600"
           onClick={handleLogoClick}
         >
           <img src={logo} className="w-20 object-cover h-15 " alt="Bios Logo" />{" "}
           || For Gambia
-        </span>
+        </h1>
 
         {isBarVisible && (
           <ul className="mt-6 space-y-1">

@@ -9,19 +9,19 @@ export default function Hero1() {
         <img
           src={hero1Img}
           alt="hero1"
-          className="lg:w-full h-[400px] object-cover rounded-lg absolute z-0"
+          className="lg:w-full h-[400px]  object-cover absolute z-0"
         />
-        <div className=" relative lg:flex lg:justify-between pl-5 items-end ">
-          <div className="text-left lg:mt-28 mt-1 hover:scale-105">
-            <h2 className="text-[15px] text-black p-1  bg-green-600 ">
+        <div className=" relative lg:flex lg:justify-between  pl-5 items-start ">
+          <div className="text-left lg:mt-28  hover:scale-105">
+            <h2 className=" text-black p-1 text-xm bg-green-600 ">
               Organic farm - sustainable - community
             </h2>
-            <p className="bg-yellow-400 text-black text-md ">
+            <h3 className="bg-green-600  text-black text-md ">
               Help our community grow,
-            </p>
-            <p className="bg-yellow-400 text-black text-md ">
+            </h3>
+            <h5 className="bg-yellow-400  text-black text-md ">
               we are worth it!
-            </p>
+            </h5>
             <div className=" py-2 px-4">
               <Link
                 to="/donate"
@@ -31,7 +31,7 @@ export default function Hero1() {
               </Link>
             </div>
           </div>
-          <div className=" lg:w-1/3 xs:w-screen  right-0 lg:p-4  text-black  bg-opacity-100 rounded-lg text-lg">
+          <div className=" lg:w-1/3 xs:w-screen  right-0 lg:p-4   text-black  bg-opacity-100 rounded-lg text-lg">
             <article className="overflow-hidden xs:mt-4 rounded-lg border border-gray-100 bg-white shadow-sm">
               <div className="p-4 sm:p-6">
                 <img alt="" src={hero1Img} className="w-full object-cover" />

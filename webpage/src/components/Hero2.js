@@ -8,11 +8,11 @@ export default function Hero2() {
   return (
     <div className="lg:py-4">
       <div className="lg:w-full xs:w-screen  shadow-teal-200 shadow-inner">
-        <div className="flex xs:flex-col items-center text-black text-lg ml-0  font-medium text-center lg:gap-4 lg:my-5  xs:mx-0">
-          <div className="lg:p-4 xs:p-2  ">
-            <h1 className="lg:text-lg xs:text-sm">Aktuellt: </h1>
-          </div>
+        <div className="flex xs:flex-col items-center justify-center text-black text-lg ml-0  font-medium text-center lg:gap-4 lg:my-5  xs:mx-0">
           <div className="lg:flex lg:ml-2 xs:flex-col">
+            <div className="lg:p-4 xs:p-2  ">
+              <h1 className="lg:text-lg xs:text-sm">News: </h1>
+            </div>
             <div className="flex gap-2 xs:p-0 lg:p-4 items-center ">
               <div className="flex items-center">
                 <FontAwesomeIcon icon={faAngleRight} />
@@ -22,7 +22,7 @@ export default function Hero2() {
                 className="text-black lg:text-lg text-xs no-underline hover:text-blue-500 hover:underline"
                 to="/projects"
               >
-                Läs om vad vill göra för att hjälpa Gambia
+                Read about what we do in Gambia
               </Link>
             </div>
             <div className="flex gap-2  lg:p-4 items-center">
@@ -34,21 +34,21 @@ export default function Hero2() {
                 className="text-black lg:text-lg text-sm no-underline hover:text-blue-500 hover:underline"
                 to="/donate"
               >
-                Bli världens bidragare!
+                Become a world contributor!
               </Link>
             </div>
-          </div>
-          <div className="flex gap-2 lg:p-4  items-center">
-            <div className="flex items-center">
-              <FontAwesomeIcon icon={faAngleRight} />
-              <FontAwesomeIcon icon={faAngleRight} />
+            <div className="flex gap-2 lg:p-4  items-center">
+              <div className="flex items-center">
+                <FontAwesomeIcon icon={faAngleRight} />
+                <FontAwesomeIcon icon={faAngleRight} />
+              </div>
+              <Link
+                className=" lg:text-lg text-sm text-black no-underline hover:text-blue-500 hover:underline"
+                to="/partners"
+              >
+                Our partners
+              </Link>
             </div>
-            <Link
-              className=" lg:text-lg text-sm text-black no-underline hover:text-blue-500 hover:underline"
-              to="/partners"
-            >
-              Företag
-            </Link>
           </div>
         </div>
       </div>
@@ -63,20 +63,22 @@ export default function Hero2() {
         <div className="flex flex-col gap-4 p-4 ">
           <div className="xs:w-full">
             <h1 className="text-xl bg-gradient-to-r from-blue-500 to-purple-500 w-max text-white font-bold">
-              Köp en byggmaterial
+              Purchase a craft tool directly from Gambia
             </h1>
             <h1 className="text-xl bg-gradient-to-r from-blue-500 to-purple-500 w-max text-white font-bold">
-              som bygger barnens skolor
+              to build schools for children
             </h1>
             <p className="text-sm font-medium">
-              Det du handlar för går till att bygga barnens skolor i (Staden)
+              when you buy a craft tool from our gift shop, you help us to
+              purchase materials for building schools in Boraba.
             </p>
             <p className="text-sm font-medium">
-              för att ge nya väger, och du får dina gåvobevis att materialen
-              köpts.
+              we are a non-profit organization that helps Gambias society to
+              inclution and education for all children.
             </p>
             <p className="text-sm font-medium">
-              Kom och bygg med oss för en ljusig framtid för Gambia.
+              Come and join us in our mission to build a better future for the
+              children.
             </p>
           </div>
           <div className="border-t p-3 border-green-600 hover:blu border-b w-max">

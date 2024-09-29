@@ -18,7 +18,9 @@ export default function Projects() {
     <div className="projects">
       <div className="w-full projects-container">
         <div className="projects-box">
-          <h1 className="text-2xl my-0 mx-32">Pågående Projekt</h1>
+          <h1 className="text-2xl text-center p-4  ">
+            Projects to our beautifull city:{" "}
+          </h1>
           <div className="grid grid-cols-3 p-4 mx-36 xs:m-0 projects-btn xs:flex xs:flex-col xs:w-screen">
             {projects.map((project) => {
               const { id, projectName, img, mission } = project;
