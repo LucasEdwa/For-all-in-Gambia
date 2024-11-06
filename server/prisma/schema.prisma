@@ -13,15 +13,9 @@ model Project {
   organization  String
   mission       String
   description   String
-  projectImages ProjectImage[]
+  featuredimageUrl String
 }
 
-model ProjectImage {
-  id        Int     @id @default(autoincrement())
-  projectId Int
-  project   Project @relation(fields: [projectId], references: [id])
-  imageUrl  String
-}
 
 model User {
   id              Int               @id @default(autoincrement())

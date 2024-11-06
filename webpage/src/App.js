@@ -24,7 +24,7 @@ const stripePromise = loadStripe(
 function App() {
   return (
     <Elements stripe={stripePromise}>
-      <div className="App w-full grid">
+      <div className="App w-full ">
         <div className="w-full ">
           <Header />
         </div>

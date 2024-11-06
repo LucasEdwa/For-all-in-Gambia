@@ -4,7 +4,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 const generateDonationMessage = (amount, amountMessage) =>
-  `Varje månad kan dina ${amount} kr ${amountMessage}. Som Världsförälder är du med och ger alla i Gambia hopp att forsätta.`;
+  `Every month your ${amount} kr ${amountMessage}. As donor you give hopp to Gambias communite to continue healing and growing to a better place on earth.`;
 
 const donationMessages = {
   "10000 KR": generateDonationMessage("10000"),
@@ -98,7 +98,7 @@ export default function CompanyDonationForm({ formData, setFormData }) {
                   ? "bg-blue-700"
                   : "bg-transparent"
               }`}
-              value="Ge en gåva"
+              value="Gift"
               onClick={() => handleButtonClick("ge-en-gava")}
             />
           </div>
@@ -123,7 +123,7 @@ export default function CompanyDonationForm({ formData, setFormData }) {
                   <input
                     className="w-full p-2 bg-transparent border-b-2 border-white placeholder-white"
                     type="text"
-                    placeholder="Ange valfritt belopp"
+                    placeholder="type your donation amount"
                     onChange={handleCustomDonationAmountChange}
                   />
                 </div>
@@ -156,15 +156,15 @@ export default function CompanyDonationForm({ formData, setFormData }) {
             />
           </div>
           <div>
-            <label>Kontaktperson</label>
+            <label>Person to contact</label>
             <p>
-              Dina kontaktuppgifter om vi behöver nå dig angående din
-              beställning.
+              Your contact information in case we need to reach you regarding
+              your order.
             </p>
           </div>
           <div className="space-y-5">
             <div>
-              <label htmlFor="companyFirstName">Förnamn*</label>
+              <label htmlFor="companyFirstName">First Name*</label>
               <input
                 type="text"
                 name="companyFirstName"
@@ -204,7 +204,7 @@ export default function CompanyDonationForm({ formData, setFormData }) {
             type="submit"
           >
             <FontAwesomeIcon icon={faHeart} />
-            <span>TILL BETALNING ({donationAmount})</span>
+            <span>To Payment ({donationAmount})</span>
           </button>
         </div>
       </form>

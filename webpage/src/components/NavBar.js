@@ -3,7 +3,7 @@ import "../styles/navbar.css";
 
 export default function NavBar() {
   return (
-    <Navbar className="nav-bg" expand="lg">
+    <Navbar className="nav-bg " expand="lg">
       <Navbar.Brand href="#">Navbar</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

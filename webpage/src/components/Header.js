@@ -6,8 +6,8 @@ import { getUser } from "../lib/queries/getUser";
 
 const navItems = [
   { id: 1, to: "/", label: "Home" },
-  { id: 2, to: "/goals", label: "Uppdrag & Vision" },
-  { id: 3, to: "/projects", label: "Projekt" },
+  { id: 2, to: "/goals", label: "Mission and vision" },
+  { id: 3, to: "/projects", label: "Projects" },
   { id: 4, to: "/login", label: "Log-In" },
 ]; // Add more items here
 
@@ -55,8 +55,8 @@ export default function Header() {
     setBarVisible(false);
   };
   return (
-    <div className="flex  flex-col justify-between border-e bg-white shadow-sm">
-      <div className="">
+    <div className="flex  flex-col  justify-between border-e bg-white shadow-sm">
+      <div className="relative">
         <h1
           className="flex items-center gap-6   w-fit place-content-center rounded-lg lg:text-xl text-gray-600"
           onClick={handleLogoClick}
@@ -66,7 +66,7 @@ export default function Header() {
         </h1>
 
         {isBarVisible && (
-          <ul className="mt-6 space-y-1">
+          <ul className="mt-6 space-y-1 ">
             {navItems.map((item, index) =>
               !item.disabled ? (
                 <NavItem
@@ -81,7 +81,7 @@ export default function Header() {
                 </NavDropdown>
               )
             )}
-            <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">
+            <div className="sticky inset-x-0 bottom-0 border-t absolute border-gray-100">
               <Link
                 to="#"
                 className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50"

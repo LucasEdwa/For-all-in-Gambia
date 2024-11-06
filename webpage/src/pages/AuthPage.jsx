@@ -33,6 +33,7 @@ export default function AuthPage() {
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
+
     }));
 
     // Check if password and confirmation match
@@ -46,6 +47,10 @@ export default function AuthPage() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData.email || !formData.password || !formData.password_confirmation || !formData.firstName || !formData.lastName) {
+      setOnError(new Error("All fields are required"));
+      return;
+    }
     postSignUp.mutate(formData); // Assuming your mutation expects formData
   };
 

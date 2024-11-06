@@ -8,6 +8,9 @@ const prisma = new PrismaClient();
 const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const app = express();
+const path = require('path');
+const fs = require('fs');
+
 app.use(
   fileUpload({
     createParentPath: true,
@@ -26,21 +29,39 @@ app.use("/api", require("./routes/stripePayment"));
 app.use(bodyParser.json());
 
 app.post("/api/add-project", async (req, res) => {
-  const { projectName, organization, mission, description, focusAreas } =
-    req.body;
+  const { projectName, organization, mission, description, focusAreas } = req.body;
+
+  if (!req.files || !req.files.image) {
+    return res.status(400).send("No image file was uploaded.");
+  }
+
+  const image = req.files.image;
+
+  // Define the path to store the uploaded image
+  const uploadPath = path.join(__dirname, 'uploads', image.name);
+
   try {
+    // Move the uploaded file to the uploads directory
+    await image.mv(uploadPath);
+
+    // Create the image URL (assuming you're serving files statically from 'uploads' folder)
+    const imageUrl = `/uploads/${image.name}`;
+
+    // Save the project data to the database, including the imageUrl
     const project = await prisma.project.create({
       data: {
         projectName,
         organization,
         mission,
         description: JSON.stringify({ description, focusAreas }), // Store description and focusAreas as a JSON string
+        imageUrl, // Store the image URL
       },
     });
+
     res.json(project);
   } catch (error) {
     console.error(error);
-    res.status(500).send(error.message);
+    res.status(500).send("Error uploading image or saving project data.");
   }
 });
 
@@ -95,34 +116,18 @@ app.get("/api/projects/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to parse project data" });
   }
 });
-app.post("/add-project-image", async (req, res) => {
-  const { projectId } = req.body;
 
-  // Check if file was uploaded
-  if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).send("No files were uploaded.");
+app.delete("/api/all-projects", async (req, res) => {
+  try {
+    await prisma.project.deleteMany();
+    res.json({ message: "All projects deleted" });
+  } catch (error) {
+    console.error(error);
+    res
   }
-
-  // The name of the input field (i.e. "image") is used to retrieve the uploaded file
-  let image = req.files.image;
-
-  // Use the mv() method to place the file somewhere on your server
-  image.mv("/uploads/" + image.name, async function (err) {
-    if (err) return res.status(500).send(err);
-
-    const imageUrl = "/uploads/" + image.name;
-    try {
-      const projectImage = await prisma.projectImage.create({
-        data: {
-          projectId: parseInt(projectId),
-          imageUrl,
-        },
-      });
-      res.json(projectImage);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send(error.message);
-    }
-  });
 });
-app.listen(2000, () => console.log("Server started on port 2000"));
+
+
+
+const PORT = process.env.PORT || 2000; // Change to a different port
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

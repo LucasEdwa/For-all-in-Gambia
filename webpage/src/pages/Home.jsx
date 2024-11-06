@@ -5,7 +5,7 @@ import Projects from "../components/Projects";
 
 export default function Home() {
   return (
-    <div className="home-page lg:w-full sx:w-screen xs:flex xs:flex-col">
+    <div className="home-page ">
       <Hero1 />
       <Hero2 />
       <Donation />

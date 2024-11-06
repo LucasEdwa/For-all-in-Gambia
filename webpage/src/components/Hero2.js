@@ -7,13 +7,13 @@ import hero2Img from "../images/hero2.jpg";
 export default function Hero2() {
   return (
     <div className="lg:py-4">
-      <div className="lg:w-full xs:w-screen  shadow-teal-200 shadow-inner">
-        <div className="flex xs:flex-col items-center justify-center text-black text-lg ml-0  font-medium text-center lg:gap-4 lg:my-5  xs:mx-0">
-          <div className="lg:flex lg:ml-2 xs:flex-col">
+      <div className="w-full shadow-slate-200 shadow-inner mt-4">
+        <div className="items-center justify-center text-black text-lg font-medium text-center lg:gap-4 lg:my-5  ">
+          <div className="lg:flex lg:ml-2 sx:flex-col p-2 mb-6">
             <div className="lg:p-4 xs:p-2  ">
               <h1 className="lg:text-lg xs:text-sm">News: </h1>
             </div>
-            <div className="flex gap-2 xs:p-0 lg:p-4 items-center ">
+            <div className="flex gap-2 p-0 lg:p-4 items-center ">
               <div className="flex items-center">
                 <FontAwesomeIcon icon={faAngleRight} />
                 <FontAwesomeIcon icon={faAngleRight} />
@@ -52,20 +52,20 @@ export default function Hero2() {
           </div>
         </div>
       </div>
-      <div className="lg:flex xs:flex-col xs:w-screen text-left justify-center items-center gap-4">
+      <div className="lg:flex xs:flex-col  text-left justify-center items-center gap-4">
         <div className="">
           <img
-            className="lg:w-full xs:w-screen h-64 object-cover"
+            className="lg:w-full  h-64 object-cover"
             src={hero2Img}
             alt="donation"
           />
         </div>
-        <div className="flex flex-col gap-4 p-4 ">
-          <div className="xs:w-full">
-            <h1 className="text-xl bg-gradient-to-r from-blue-500 to-purple-500 w-max text-white font-bold">
+        <div className="flex flex-col gap-4 p-4 w-full">
+          <div className="">
+            <h1 className="text-sm bg-gradient-to-r from-blue-500 to-purple-500  text-white font-bold">
               Purchase a craft tool directly from Gambia
             </h1>
-            <h1 className="text-xl bg-gradient-to-r from-blue-500 to-purple-500 w-max text-white font-bold">
+            <h1 className="text-xl bg-gradient-to-r from-blue-500 to-purple-500  text-white font-bold">
               to build schools for children
             </h1>
             <p className="text-sm font-medium">
